@@ -46,6 +46,7 @@ enum SeqId {
     SEQ_MENU_FILE_SELECT,             // 0x21
     SEQ_EVENT_CUTSCENE_LAKITU,        // 0x22
     SEQ_LEVEL_FELL_CASTLE,            // 0x23
+    SEQ_LEVEL_FILE_NEGLECT,           // 0x24
     SEQ_COUNT
 };
 
