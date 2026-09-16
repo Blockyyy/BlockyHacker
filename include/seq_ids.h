@@ -44,7 +44,8 @@ enum SeqId {
     SEQ_EVENT_CUTSCENE_VICTORY,       // 0x1F
     SEQ_EVENT_CUTSCENE_ENDING,        // 0x20
     SEQ_MENU_FILE_SELECT,             // 0x21
-    SEQ_EVENT_CUTSCENE_LAKITU,        // 0x22 (not in JP)
+    SEQ_EVENT_CUTSCENE_LAKITU,        // 0x22
+    SEQ_LEVEL_FELL_CASTLE,            // 0x23
     SEQ_COUNT
 };
 

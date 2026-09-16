@@ -253,6 +253,12 @@
             [187, 0],
             [32700, 0],
             "hang"
+        ],
+        "envelope42": [
+            [2, 32700],
+            [1, 32700],
+            [32700, 29430],
+            "hang"
         ]
     },
     "instruments": {
@@ -662,7 +668,14 @@
             {"release_rate": 10, "pan": 82, "envelope": "envelope11", "sound": {"sample": "0C_conga_stick", "tuning": 1.414214}},
             {"release_rate": 10, "pan": 82, "envelope": "envelope11", "sound": {"sample": "0C_conga_stick", "tuning": 1.498307}},
             {"release_rate": 10, "pan": 128, "envelope": "envelope11", "sound": "0D_clave"}
-        ]
+        ],
+        "inst0": {
+            "release_rate": 19,
+            "normal_range_hi": 50,
+            "envelope": "envelope42",
+            "sound": {"ifdef": ["VERSION_SH"], "then": "34b_organ", "else": "00_organ_1"},
+            "sound_hi": {"ifdef": ["VERSION_SH"], "then": "34c_organ_lq", "else": "01_organ_1_lq"}
+        }
     },
     "instrument_list": [
         "Accordion",
@@ -723,6 +736,7 @@
         "Low Bell",
         "High Bell",
         "Harmonica",
-        "Percussion Loop"
+        "Percussion Loop",
+        "inst0"
     ]
 }
