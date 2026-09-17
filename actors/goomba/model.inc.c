@@ -29,11 +29,11 @@ ALIGNED8 static const Texture goomba_seg8_texture_0801A530[] = {
 
 #ifdef FLOOMBAS
 ALIGNED8 static const Texture floomba_seg8_texture_face[] = {
-#include "actors/goomba/custom_floomba_face.rgba16.inc.c"
+#include "actors/goomba/fellfloomba.rgba16.inc.c"
 };
 
 ALIGNED8 static const Texture floomba_seg8_texture_blink[] = {
-#include "actors/goomba/custom_floomba_face_blink.rgba16.inc.c"
+#include "actors/goomba/fellfloomba_blink.rgba16.inc.c"
 };
 #endif
 
