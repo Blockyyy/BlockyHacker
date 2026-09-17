@@ -1,44 +1,45 @@
-# ![](https://i.imgur.com/CeOukzk.gif) HackerSM64 ![](https://i.imgur.com/s0LUbTo.gif)
+# ![](https://i.imgur.com/CeOukzk.gif) FuckerSMF64 ![](https://i.imgur.com/s0LUbTo.gif)
 
-**AFTER CLONING THE REPO, CHECK OUT THE `include/config` FOLDER BEFORE ANYTHING ELSE! THERE'S A LOT OF STUFF IN THIS REPO THAT CAN BE TOGGLED THERE.**
+**HEY DIPSHIT, AFTER CLONING THE REPO, CHECK OUT THE `include/config` FOLDER BEFORE ANYTHING ELSE! THERE'S A LOT OF SHIT IN THIS REPO THAT CAN BE TOGGLED THERE.**
 
-HackerSM64 now has a discord server! https://discord.gg/brETAakcXr
+FuckerSMF64 has a discord so join, bitch https://discord.gg/brETAakcXr
 
-This repo requires BOTH a US ROM and a JP ROM in order to build. Place baserom.us.z64 in the repo as usual and ALSO include baserom.jp.z64.
+This fucking repo requires a US AND a JP ROM to build, so don't you fucking forget.
+And obviously place them in the repo, where do you think you need to put them?
 
-This repo needs gcc in order to be able to build it. To install it, run `sudo apt install gcc-mips-linux-gnu`
+And you BETTER have gcc fucking installed otherwise you're fucked, figure out how to get a proper setup before getting into romhacking moron.
 
-This is a fork of the ultrasm64 repo by CrashOveride which includes the following commonly used patches (patches marked with `*` are toggleable in the config files):
+This is a fork of the ultrasmf64 repo by CrashOveride which includes the following commonly used patches (patches marked with `*` are toggleable in the config files):
 
 **Credits**
-- **ArcticJaguar725**: Most audio configuration and layout changes, colored ia4 text, floombas, various bugfixes, and more
-- **CowQuack**: Adjustable skybox sizes, area-specific skybox function
-- **thecozies**: Water surface types, general maintenance, and time
-- **MrComit**: General use object defines, JUMP_KICK_FIX
-- **aglab2**: Bugfixes (particularly puppycam), refactor stuff
-- **someone2639**: math.s and crash screen disam, stack trace, map packing, shiftable segments 2, S2DEX engine
-- **Arthurtilly**: Platform Displacement 2
-- **Fazana**: PuppyLib, ucode swapping, audio load time optimisations (with Arctic), general hacker qol improvements, visual debug
-- **Reonu**: Starting the project/repo, widescreen, reonucam, various defines for hacker QoL
-- **JoshDuMan**: Decomp guy, general assistance
+- **ArcticJaguar527**: A bunch of shit no one cares about, like audio and whatever.
+- **BullQuack**: Some skybox related bullshit, who cares.
+- **theuncomfies**: Water surface types and general maintenance because this fuck doesn't have anything better to do.
+- **LordComit**: Some random general object bullshit, as well as some Defines no one cares about.
+- **aglab2**: Shitty camera bug fixes.
+- **nobody9362**: math.s and crash screen disam, stack trace, map packing, shiftable segments 2, S2DEX engine
+- **💖 Athuwutilly :3**: I revamped platform displacement for you guys :D (<- Get a load of this whimsical motherfucker.)
+- **Fazana**: BullLib, ucode swapping, audio load time optimisations (with Arctic), general hacker qol improvements, visual debug
+- **Reonuke**: Starting the project/repo, widescreen, reonukecam, various defines for hacker QoL
+- **JoshDuMort**: Decomp guy, general assistance
 - **Arceveti**: Silhouette, shadow optimisation, better hanging, breath meter, 4 controller support
 - **axollyon**: Console testing, bugfixes, idea-guying, and had a hand in silhouettes
-- **Wiseguy**:  World scale reimplementation, silhouette, graph node optimisations, instant input patch, cake screen fix, segmented code support, and various optimizations/fixes
-- **Kaze**: Graph node optimisations, automatic optimal collision distance
-- **Pyro Jay**: Texture improvements, repo banner art, some QoL stuff
-- **CrashOveride**: creating the [ultrasm64](https://github.com/CrashOveride95/ultrasm64) repo
-- **falcobuster**: Original coordinate overflow fix (world scale), ASM version of extended bounds, emulator detector
+- **Vileguy**:  World scale reimplementation, silhouette, graph node optimisations, instant input patch, cake screen fix, segmented code support, and various optimizations/fixes
+- **Kazegami**: Graph node optimisations, automatic optimal collision distance
+- **Cryo Jay**: Texture improvements, repo banner art, some QoL stuff
+- **CrashOveride**: creating the [ultrasmf64](https://github.com/CrashOveride95/ultrasmf64) repo
+- **falcobusted**: Original coordinate overflow fix (world scale), ASM version of extended bounds, emulator detector
 - **anonymous_moose**: porting falco's extended bounds to decomp
-- **tuxlovesyou**: `LOAD_MIO0_TEXTURE` macro and moral support
+- **tuxhatesyou**: `LOAD_MIO0_TEXTURE` macro and moral support
 - **devwizard**: the PJ64 pre-v3.0 detection part of the emulator detector
 
-Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
+Oh yeah and i guess Frame#5375 and AloXado320 helped with the silhouettes or whatever.
 
-**Lighting Engine by Wiseguy**
-- Lighting Engine is available on a separate branch ([base/lighting-engine](https://github.com/Reonu/HackerSM64/tree/base/lighting-engine)). Instructions on how to use it are in the readme of that branch.
+**Lighting Engine by Vileguy**
+- If for whatever fucking reason you need it, its there: ([base/lighting-engine](https://github.com/Reonuke/FuckerSMF64/tree/base/lighting-engine)). This branch is dogshit and nobody uses it so figure it out.
 
-**Puppycam**
-- Puppycam is available on the master branch now, you can toggle it in `config/config_camera.h`. *
+**Bullcam**
+- Bullcam is available on the master branch now, you can toggle it in `config/config_camera.h`. *
 
 **Collision:**
 - Slope fix and exposed ceilings fix
@@ -51,7 +52,7 @@ Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
 - Platform Displacement 2 by Arthurtilly *
 - Water Surface Type patch by thecozies
 - Better wall collision with rounded corners by FramePerfection, merged by Cheezepin & Arceveti
-- Automatically calculate the optimal collision distance for an object based on its vertices, by Kaze *
+- Automatically calculate the optimal collision distance for an object based on its vertices, by Kazegami *
 
 **Common Hack Changes:**
 - Better extended boundaries by anonymous_moose
@@ -63,7 +64,7 @@ Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
 - Removed course-specific camera processing *
 - Ability to set Mario's movement speed when hanging from a ceiling *
 - Tighter hanging controls (Mario will face the direction of the analog stick directly while hanging from a ceiling) *
-- reonucam3: custom camera by Reonu. This is included as a .patch file in the enhancements folder, you need to apply it if you want this camera.
+- reonucam3: custom camera by Reonuke. This is included as a .patch file in the enhancements folder, you need to apply it if you want this camera.
   This video shows a rundown of the features: https://youtu.be/TQNkznX9Z3k
 - Ability to disable Mario getting suck in snow or sand
 
@@ -97,14 +98,14 @@ Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
 - Castle music fix (fixes the castle music sometimes triggering after getting a dialog) *
 - bparam4 fix (the game no longer uses bparam4 to check if an object is Mario and therefore you can safely use it)
 - Instant warp offset fix (makes the instant warp offset work even when warping to a different area) *
-- haveyourcake, also known as cake screen fix. Made by Wiseguy and ported/PR'd by Cheezepin
+- haveyourcake, also known as cake screen fix. Made by Vileguy and ported/PR'd by Cheezepin
 - Tree particle fix (Whether a tree uses snow particles or not is decided via the model IDs instead of the course number) *
 - Adjustable world scale. You can change the geometry scaling of your level, which allow large levels to render correctly on console and LLE emulators while not hurting anything on HLE plugins.
 - A couple vanilla texture fixes
 - Smoke fix (the smoke texture uses the correct texture format)
 
 **Neat Misc. Changes:**
-- Instant Input patch by Wiseguy (Removes all input lag caused by plugins supporting framebuffer)
+- Instant Input patch by Vileguy (Removes all input lag caused by plugins supporting framebuffer)
   - This means that you'll have to do your framebuffer effects on buffer 0 for emulator, but NOT for console. You can use the `gEmulator` variable to check for console when doing your framebuffer effects.
 - Widescreen (16:9) support toggleable by pressing `L` in the pause menu. *
 - S2DEX engine by someone2639! To use it, compile with `make TEXT_ENGINE=s2dex_text_engine` or just set `TEXT_ENGINE` to `s2dex_text_engine` in the makefile.
@@ -112,7 +113,7 @@ Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
 - ia8 (64x64) 30 FPS coins (Textures by InTheBeef, cleaned up by Arceveti). *
 - Floombas! Simply just retextured goombas with customizable behaviors (does not overwrite standard goombas). *
 - HD texture support for intro splash screen (with floombas if enabled). *
-- Mario's silhouette is shown when behind most surfaces (By Frame#5375, Axollyon, AloXado320, Wiseguy, Arceveti) *
+- Mario's silhouette is shown when behind most surfaces (By Frame#5375, Axollyon, AloXado320, Vileguy, Arceveti) *
 - Skybox size modifier. You can have 2x, 3x and 4x size skyboxes (you can select the skybox size in `config/config_graphics.h`.) Please note that this might affect console performance, especially 4x mode. 2x or 3x mode is recommended if aiming for console. By CowQuack *
 - You can set the black border size to different values for console and emulator. It's set to 0 by default for both. *
 - This repo supports a much better implementation of reverb over vanilla's fake echo reverb. Great for caves or eerie levels, as well as just a better audio experience in general. See `audio/synthesis.c` for more details and configuration info. (By ArcticJaguar725) *
@@ -120,9 +121,9 @@ Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
   - Use `print_small_text` to print normal text. The two last params are aligment and how many characters to print (-1 means PRINT_ALL).
   - Use `render_multi_image` to draw large texture rectangles consisting of multiple images on the screen.
   - More info in `puppyprint.c`
-- Wiseguy's Farcall TLB mapping allows to store executable code inside uncompressed segments, that can be loaded and ran as needed, instead of it having to be loaded at all times. See `farcall.h` in the include folder for instructions and details.
+- Vileguy's Farcall TLB mapping allows to store executable code inside uncompressed segments, that can be loaded and ran as needed, instead of it having to be loaded at all times. See `farcall.h` in the include folder for instructions and details.
 - Red Coin Stars now support up to 99 red coins! In addition, multi-area red coin missions can now be created by setting the 2nd behavior paramater of the red coin star to the number of reds required for the star to spawn.
-# UltraSM64
+# UltraSMF64
 
 - This repo contains a full decompilation of Super Mario 64 (J), (U), (E), and (SH).
 - Naming and documentation of the source code and data structures are in progress.
@@ -133,7 +134,7 @@ Thanks to Frame#5375 and AloXado320 for also helping with silhouette stuff
 - Newer compression options are supported.
 - UNFLoader (flashcart USB library) is supported, allowing for debugging on EverDrive/64Drive.
 - It has been patched with someone2639's shiftable segments patch
-- Wiseguy's instant input patch has been added to allow for less input lag on emulation (Does not affect console)
+- Vileguy's instant input patch has been added to allow for less input lag on emulation (Does not affect console)
   This does mean that any framebuffer effects will have to be done on buffer 0 if targeting emulators
 - Automatic console and emulator detection: Use the `gEmulator` variable to wrap your code in an emulator check.
 - Separate defines for emulator and console black border height.
