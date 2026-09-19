@@ -73,22 +73,22 @@ const Gfx title_screen_bg_dl_end[] = {
 
 // 0x0A0001C0
 ALIGNED8 static const Texture title_texture_title_0[] = {
-#include "textures/title_screen_bg/title_screen_bg.001C0.rgba16.inc.c"
+#include "textures/title_screen_bg/fellpart1.rgba16.inc.c"
 };
 
 // 0x0A000E40
 ALIGNED8 static const Texture title_texture_title_1[] = {
-#include "textures/title_screen_bg/title_screen_bg.00E40.rgba16.inc.c"
+#include "textures/title_screen_bg/fellpart2.rgba16.inc.c"
 };
 
 // 0x0A001AC0
 ALIGNED8 static const Texture title_texture_title_2[] = {
-#include "textures/title_screen_bg/title_screen_bg.01AC0.rgba16.inc.c"
+#include "textures/title_screen_bg/fellpart3.rgba16.inc.c"
 };
 
 // 0x0A002740
 ALIGNED8 static const Texture title_texture_title_3[] = {
-#include "textures/title_screen_bg/title_screen_bg.02740.rgba16.inc.c"
+#include "textures/title_screen_bg/fellpart4.rgba16.inc.c"
 };
 
 // 0x0A0033C0
