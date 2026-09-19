@@ -1,3 +1,4 @@
+#include <cstdint>
 // armips assembler v0.11
 // https://github.com/Kingcom/armips/
 // To simplify compilation, all files have been concatenated into one.
