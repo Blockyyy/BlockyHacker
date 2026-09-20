@@ -96,6 +96,50 @@ struct DynList dynlist_mario_eye_right_shape[] = {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     MakeDynObj(D_SHAPE, DYNOBJ_MARIO_RIGHT_EYE_SHAPE),
         SetNodeGroup(DYNOBJ_MARIO_RIGHT_EYE_VTX_GROUP),
         SetPlaneGroup(DYNOBJ_MARIO_RIGHT_EYE_TRI_GROUP),
