@@ -7796,25 +7796,26 @@ layer_delay 0x6
 
 .layer_3148:
 layer_call .transpose_by_coin_index
-layer_note0 46, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 20
-layer_note0 45, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 20
-layer_note0 46, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 20
-layer_note0 58, 0x10, (80 - RED_COIN_NOTE_VELOCITY_SUB), 80
-layer_note0 58, 0x10, (45 - RED_COIN_NOTE_VELOCITY_SUB), 80
-layer_note0 58, 0x10, (20 - RED_COIN_NOTE_VELOCITY_SUB), 80
-layer_note0 58, 0x10, (15 - RED_COIN_NOTE_VELOCITY_SUB), 80
-
+layer_note0 42, 0xc, (70 - RED_COIN_NOTE_VELOCITY_SUB), 30
+layer_note0 41, 0xc, (65 - RED_COIN_NOTE_VELOCITY_SUB), 30
+layer_note0 42, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 30
+layer_note0 52, 0x18, (95 - RED_COIN_NOTE_VELOCITY_SUB), 140
+layer_note0 52, 0x18, (70 - RED_COIN_NOTE_VELOCITY_SUB), 140
+layer_note0 51, 0x18, (50 - RED_COIN_NOTE_VELOCITY_SUB), 140
+layer_note0 50, 0x18, (30 - RED_COIN_NOTE_VELOCITY_SUB), 160
+layer_note0 49, 0x20, (10 - RED_COIN_NOTE_VELOCITY_SUB), 200
 layer_end
 
 .layer_3168:
 layer_call .transpose_by_coin_index
-layer_note0 41, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 20
-layer_note0 40, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 20
-layer_note0 41, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 20
-layer_note0 53, 0x10, (80 - RED_COIN_NOTE_VELOCITY_SUB), 80
-layer_note0 53, 0x10, (45 - RED_COIN_NOTE_VELOCITY_SUB), 80
-layer_note0 53, 0x10, (20 - RED_COIN_NOTE_VELOCITY_SUB), 80
-layer_note0 53, 0x10, (15 - RED_COIN_NOTE_VELOCITY_SUB), 80
+layer_note0 37, 0xc, (70 - RED_COIN_NOTE_VELOCITY_SUB), 30
+layer_note0 36, 0xc, (65 - RED_COIN_NOTE_VELOCITY_SUB), 30
+layer_note0 37, 0xc, (75 - RED_COIN_NOTE_VELOCITY_SUB), 30
+layer_note0 46, 0x18, (95 - RED_COIN_NOTE_VELOCITY_SUB), 140
+layer_note0 46, 0x18, (70 - RED_COIN_NOTE_VELOCITY_SUB), 140
+layer_note0 45, 0x18, (50 - RED_COIN_NOTE_VELOCITY_SUB), 140
+layer_note0 44, 0x18, (30 - RED_COIN_NOTE_VELOCITY_SUB), 160
+layer_note0 37, 0x20, (10 - RED_COIN_NOTE_VELOCITY_SUB), 200
 layer_end
 
 .transpose_by_coin_index:
