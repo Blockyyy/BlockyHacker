@@ -1,0 +1,2 @@
+extern void scroll_castle_inside_dl_LAYER_ALPHA_inside_castle_seg7_dl_07038350_mesh_mesh_layer_5_vtx_1();
+extern void scroll_castle_inside();

@@ -13,5 +13,6 @@ extern const Gfx debug_level_select_dl_070048C8[];
 extern const Gfx debug_level_select_dl_07005558[];
 extern const Gfx debug_level_select_dl_070059F8[];
 extern const Gfx debug_level_select_dl_070063B0[];
+extern const Gfx lvlslct_lvlselect_mesh_layer_1_with_revert[];
 
 #endif // DEBUG_LEVEL_SELECT_H
