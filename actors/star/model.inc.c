@@ -585,15 +585,15 @@ Gfx star_000_displaylist_mesh_layer_1_tri_0[] = {
 	gsSPEndDisplayList(),
 };
 
-Vtx star_000_displaylist_mesh_layer_4_vtx_0[4] = {
+Vtx star_000_displaylist_mesh_layer_5_vtx_0[4] = {
 	{{ {248, -248, 0}, 0, {1008, 1008}, {255, 255, 255, 255} }},
 	{{ {-248, 248, 0}, 0, {-16, -16}, {255, 255, 255, 255} }},
 	{{ {-248, -248, 0}, 0, {-16, 1008}, {255, 255, 255, 255} }},
 	{{ {248, 248, 0}, 0, {1008, -16}, {255, 255, 255, 255} }},
 };
 
-Gfx star_000_displaylist_mesh_layer_4_tri_0[] = {
-	gsSPVertex(star_000_displaylist_mesh_layer_4_vtx_0 + 0, 4, 0),
+Gfx star_000_displaylist_mesh_layer_5_tri_0[] = {
+	gsSPVertex(star_000_displaylist_mesh_layer_5_vtx_0 + 0, 4, 0),
 	gsSP2Triangles(0, 1, 2, 0, 0, 3, 1, 0),
 	gsSPEndDisplayList(),
 };
@@ -638,13 +638,13 @@ Gfx mat_revert_star_f3dlite_material_001[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_star_f3dlite_material_006_layer4[] = {
+Gfx mat_star_f3dlite_material_006_layer5[] = {
 	gsSPClearGeometryMode(G_CULL_BACK | G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetCombineLERP(TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0, TEXEL0, 0, SHADE, 0, TEXEL0, 0, PRIMITIVE, 0),
 	gsDPSetAlphaDither(G_AD_NOISE),
 	gsDPSetTextureLUT(G_TT_RGBA16),
-	gsDPSetRenderMode(G_RM_AA_ZB_TEX_EDGE, G_RM_AA_ZB_TEX_EDGE2),
+	gsDPSetRenderMode(G_RM_AA_ZB_XLU_SURF, G_RM_AA_ZB_XLU_SURF2),
 	gsSPTexture(65535, 65535, 0, 0, 1),
 	gsDPSetPrimColor(0, 0, 255, 255, 255, 255),
 	gsDPSetTextureImage(G_IM_FMT_RGBA, G_IM_SIZ_16b, 1, star_star_circle_rgba16_pal_rgba16),
@@ -658,12 +658,12 @@ Gfx mat_star_f3dlite_material_006_layer4[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx mat_revert_star_f3dlite_material_006_layer4[] = {
+Gfx mat_revert_star_f3dlite_material_006_layer5[] = {
 	gsSPSetGeometryMode(G_CULL_BACK | G_LIGHTING),
 	gsDPPipeSync(),
 	gsDPSetAlphaDither(G_AD_DISABLE),
 	gsDPSetTextureLUT(G_TT_NONE),
-	gsDPSetRenderMode(G_RM_AA_ZB_TEX_EDGE, G_RM_AA_ZB_TEX_EDGE2),
+	gsDPSetRenderMode(G_RM_AA_ZB_XLU_SURF, G_RM_AA_ZB_XLU_SURF2),
 	gsSPEndDisplayList(),
 };
 
@@ -703,17 +703,10 @@ Gfx star_000_displaylist_mesh_layer_1_with_revert[] = {
 	gsSPEndDisplayList(),
 };
 
-Gfx star_000_displaylist_mesh_layer_4_with_revert[] = {
-	gsSPDisplayList(mat_star_f3dlite_material_006_layer4),
-	gsSPDisplayList(star_000_displaylist_mesh_layer_4_tri_0),
-	gsSPDisplayList(mat_revert_star_f3dlite_material_006_layer4),
-	gsDPPipeSync(),
-	gsSPSetGeometryMode(G_LIGHTING),
-	gsSPClearGeometryMode(G_TEXTURE_GEN),
-	gsDPSetCombineLERP(0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT, 0, 0, 0, SHADE, 0, 0, 0, ENVIRONMENT),
-	gsSPTexture(65535, 65535, 0, 0, 0),
-	gsDPSetEnvColor(255, 255, 255, 255),
-	gsDPSetAlphaCompare(G_AC_NONE),
+Gfx star_000_displaylist_mesh_layer_5[] = {
+	gsSPDisplayList(mat_star_f3dlite_material_006_layer5),
+	gsSPDisplayList(star_000_displaylist_mesh_layer_5_tri_0),
+	gsSPDisplayList(mat_revert_star_f3dlite_material_006_layer5),
 	gsSPEndDisplayList(),
 };
 

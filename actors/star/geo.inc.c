@@ -8,7 +8,7 @@ const GeoLayout star_geo[] = {
 			GEO_SCALE(LAYER_FORCE, 16384),
 			GEO_OPEN_NODE(),
 				GEO_DISPLAY_LIST(LAYER_OPAQUE, star_000_displaylist_mesh_layer_1_with_revert),
-				GEO_DISPLAY_LIST(LAYER_ALPHA, star_000_displaylist_mesh_layer_4_with_revert),
+				GEO_DISPLAY_LIST(LAYER_TRANSPARENT, star_000_displaylist_mesh_layer_5),
 				GEO_DISPLAY_LIST(LAYER_TRANSPARENT, star_001_displaylist_mesh_layer_5_with_revert),
 			GEO_CLOSE_NODE(),
 		GEO_CLOSE_NODE(),
