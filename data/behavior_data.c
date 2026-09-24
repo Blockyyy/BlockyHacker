@@ -3163,6 +3163,7 @@ const BehaviorScript bhvTree[] = {
     SET_INT(oInteractType, INTERACT_POLE),
     SET_HITBOX(/*Radius*/ 80, /*Height*/ 500),
     SET_INT(oIntangibleTimer, 0),
+    CALL_NATIVE(bhv_init_room),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_pole_base_loop),
     END_LOOP(),
