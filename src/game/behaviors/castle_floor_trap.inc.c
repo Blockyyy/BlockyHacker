@@ -95,7 +95,7 @@ void bhv_floor_trap_in_castle_loop(void) {
 void launch_mario_into_warp(void) {
     if (gMarioState->action != ACT_VERTICAL_WIND && gMarioState->action != ACT_DISAPPEARED) {
         gMarioState->action = ACT_VERTICAL_WIND;
-        play_sound(SOUND_MARIO_HERE_WE_GO, gMarioObject->header.gfx.cameraToObject);
+        play_sound(SOUND_MARIO_WAAAOOOW, gMarioObject->header.gfx.cameraToObject);
     }
 
     gMarioState->vel[1] = 50;
