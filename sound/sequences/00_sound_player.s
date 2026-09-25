@@ -6998,7 +6998,7 @@ chan_setlayer 1, .layer_2BBD
 chan_end
 
 .layer_2BB0:
-layer_portamento 0x1, 35, 0xa
+layer_portamento 0x1, 38, 0xa
 layer_note1 41, 0xa, 80
 layer_setpan 0
 layer_note1 41, 0xa, 80
@@ -7007,7 +7007,7 @@ layer_end
 .layer_2BBD:
 layer_setpan 127
 layer_delay 0xc
-layer_note1 41, 0xa, 80
+layer_note1 38, 0xa, 80
 layer_end
 
 .sound_menu_reverse_pause:
@@ -7043,13 +7043,14 @@ chan_setnotepriority 14
 chan_setpanmix 0
 chan_setlayer 0, .layer_2C03
 chan_setlayer 1, .layer_2C10
+chan_setlayer 2, .layer_2C20
 chan_end
 
 .layer_2C03:
 layer_note1 43, 0x9, 95
-layer_note1 39, 0x9, 90
+layer_note1 37, 0x9, 92
 layer_note1 43, 0x9, 95
-layer_note1 39, 0x9, 90
+layer_note1 37, 0x9, 92
 layer_end
 
 .layer_2C10:
@@ -7057,15 +7058,22 @@ layer_delay 0x8
 layer_setpan 40
 layer_note1 43, 0x9, 35
 layer_setpan 88
-layer_note1 39, 0x9, 35
+layer_note1 37, 0x9, 35
 layer_setpan 36
 layer_note1 43, 0x9, 30
 layer_setpan 92
-layer_note1 39, 0x9, 30
+layer_note1 37, 0x9, 30
 layer_setpan 28
 layer_note1 43, 0x9, 25
 layer_setpan 100
-layer_note1 39, 0x9, 25
+layer_note1 37, 0x9, 25
+layer_end
+
+.layer_2C20:
+layer_delay 0x4
+layer_setpan 64
+layer_note1 26, 0x9, 45
+layer_note1 26, 0x9, 35
 layer_end
 
 .sound_menu_message_appear:
