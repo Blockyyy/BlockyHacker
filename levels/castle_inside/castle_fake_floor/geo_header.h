@@ -1,0 +1,12 @@
+extern const GeoLayout castle_fake_floor_geo[];
+extern u8 castle_fake_floor_inside_castle_textures_05000_rgba16_i8[];
+extern u8 castle_fake_floor_BRICK_ia8[];
+extern Vtx castle_fake_floor_visual_fake_floor_mesh_layer_1_vtx_0[32];
+extern Gfx castle_fake_floor_visual_fake_floor_mesh_layer_1_tri_0[];
+extern Vtx castle_fake_floor_visual_fake_floor_mesh_layer_1_vtx_1[26];
+extern Gfx castle_fake_floor_visual_fake_floor_mesh_layer_1_tri_1[];
+extern Gfx mat_castle_fake_floor_carpet[];
+extern Gfx mat_revert_castle_fake_floor_carpet[];
+extern Gfx mat_castle_fake_floor_whitebricks_layer1[];
+extern Gfx mat_revert_castle_fake_floor_whitebricks_layer1[];
+extern Gfx castle_fake_floor_visual_fake_floor_mesh_layer_1_with_revert[];

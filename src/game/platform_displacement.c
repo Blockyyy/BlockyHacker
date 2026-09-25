@@ -177,8 +177,9 @@ static void apply_mario_inertia(void) {
  */
 void apply_mario_platform_displacement(void) {
     struct Object *platform;
-
     platform = gMarioPlatform;
+    if (platform != NULL && platform->oFlags & OBJ_FLAG_NO_DISPLACEMENT) { return; }
+
     if (!(gTimeStopState & TIME_STOP_ACTIVE) && gMarioObject != NULL) {
         if (platform != NULL) {
             apply_platform_displacement(&sMarioDisplacementInfo, gMarioState->pos, &gMarioState->faceAngle[1], platform);

@@ -23,3 +23,5 @@
 #include "levels/castle_inside/water_level_pillar/geo.inc.c"
 #include "levels/castle_inside/areas/3/geo.inc.c"
 #include "geo.inc.c"
+#include "metal_trap/geo.inc.c"
+#include "castle_fake_floor/geo.inc.c"

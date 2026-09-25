@@ -84,3 +84,7 @@
 #include "levels/castle_inside/areas/3/trajectory.inc.c"
 #include "levels/castle_inside/areas/3/movtext.inc.c"
 #include "leveldata.inc.c"
+#include "metal_trap/collision.inc.c"
+#include "metal_trap/model.inc.c"
+#include "castle_fake_floor/model.inc.c"
+#include "castle_fake_floor/collision.inc.c"

@@ -155,4 +155,8 @@ extern const struct MovtexQuadCollection inside_castle_movtex_moat_water[];
 extern const LevelScript level_castle_inside_entry[];
 
 #include "header.inc.h"
+#include "metal_trap/collision_header.h"
+#include "metal_trap/geo_header.h"
+#include "castle_fake_floor/geo_header.h"
+#include "castle_fake_floor/collision_header.h"
 #endif
