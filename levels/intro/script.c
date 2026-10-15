@@ -165,7 +165,7 @@ const LevelScript level_intro_entry_level_select[] = {
 
 const LevelScript script_intro_file_select[] = {
     STOP_MUSIC(/*fadeOutTime*/ 0x00BE),
-    TRANSITION(/*transType*/ WARP_TRANSITION_FADE_INTO_COLOR, /*time*/ 16, /*color*/ 0xFF, 0xFF, 0xFF),
+    TRANSITION(/*transType*/ WARP_TRANSITION_FADE_INTO_COLOR, /*time*/ 16, /*color*/ 0, 0, 0),
     SLEEP(/*frames*/ 16),
     CLEAR_LEVEL(),
     SLEEP(/*frames*/ 2),
@@ -174,7 +174,7 @@ const LevelScript script_intro_file_select[] = {
 };
 
 const LevelScript script_intro_level_select[] = {
-    TRANSITION(/*transType*/ WARP_TRANSITION_FADE_INTO_COLOR, /*time*/ 16, /*color*/ 0xFF, 0xFF, 0xFF),
+    TRANSITION(/*transType*/ WARP_TRANSITION_FADE_INTO_COLOR, /*time*/ 16, /*color*/ 0, 0, 0),
     SLEEP(/*frames*/ 16),
     CLEAR_LEVEL(),
     SLEEP(/*frames*/ 2),
@@ -187,7 +187,7 @@ const LevelScript script_intro_main_level_entry_stop_music[] = {
 };
 
 const LevelScript script_intro_main_level_entry[] = {
-    TRANSITION(/*transType*/ WARP_TRANSITION_FADE_INTO_COLOR, /*time*/ 16, /*color*/ 0xFF, 0xFF, 0xFF),
+    TRANSITION(/*transType*/ WARP_TRANSITION_FADE_INTO_COLOR, /*time*/ 16, /*color*/ 0, 0, 0),
     SLEEP(/*frames*/ 16),
     CLEAR_LEVEL(),
     SLEEP(/*frames*/ 2),

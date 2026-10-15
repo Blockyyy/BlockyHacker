@@ -41,7 +41,7 @@
 /**
  * Disables fall damage.
  */
-#define NO_FALL_DAMAGE
+// #define NO_FALL_DAMAGE
 
 /**
  * Disables the scream that mario makes when falling off a great height (this is separate from actual fall damage).
@@ -139,5 +139,5 @@
 /**
  * Inertia defines; allow Mario to preserve his momemtum when leaving moving platforms.
  */
-#define MARIO_INERTIA_UPWARD
+//#define MARIO_INERTIA_UPWARD
 // #define MARIO_INERTIA_LATERAL

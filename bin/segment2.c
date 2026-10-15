@@ -399,7 +399,7 @@ ALIGNED8 static const Texture texture_hud_char_multiply[] = {
 };
 
 ALIGNED8 static const Texture texture_hud_char_coin[] = {
-#include "textures/segment2/segment2.05800.rgba16.inc.c"
+#include "textures/segment2/fellcoin.rgba16.inc.c"
 };
 
 ALIGNED8 static const Texture texture_hud_char_red_coin[] = {
@@ -411,11 +411,11 @@ ALIGNED8 static const Texture texture_hud_char_silver_coin[] = {
 };
 
 ALIGNED8 static const Texture texture_hud_char_mario_head[] = {
-#include "textures/segment2/segment2.05A00.rgba16.inc.c"
+#include "textures/segment2/fellmariohead.rgba16.inc.c"
 };
 
 ALIGNED8 static const Texture texture_hud_char_star[] = {
-#include "textures/segment2/segment2.05C00.rgba16.inc.c"
+#include "textures/segment2/fellstar.rgba16.inc.c"
 };
 
 #if defined(VERSION_JP) || defined(VERSION_SH) || defined(COMPLETE_EN_US_SEGMENT2)
@@ -1997,11 +1997,11 @@ ALIGNED8 static const Texture texture_hud_char_camera[] = {
 };
 
 ALIGNED8 static const Texture texture_hud_char_lakitu[] = {
-#include "textures/segment2/segment2.07D50.rgba16.inc.c"
+#include "textures/segment2/felllakitu.rgba16.inc.c"
 };
 
 ALIGNED8 static const Texture texture_hud_char_no_camera[] = {
-#include "textures/segment2/segment2.07F50.rgba16.inc.c"
+#include "textures/segment2/fellcross.rgba16.inc.c"
 };
 
 ALIGNED8 static const Texture texture_hud_char_arrow_up[] = {
@@ -2676,7 +2676,7 @@ UNUSED ALIGNED8 static const Texture texture_radial_light[] = {
 };
 
 const Texture texture_transition_star_half[] = {
-#include "textures/segment2/segment2.0F458.ia8.inc.c"
+#include "textures/segment2/starfell.ia8.inc.c"
 };
 
 const Texture texture_transition_circle_half[] = {
@@ -2684,11 +2684,11 @@ const Texture texture_transition_circle_half[] = {
 };
 
 const Texture texture_transition_mario[] = {
-#include "textures/segment2/segment2.10458.ia8.inc.c"
+#include "textures/segment2/mariofell.ia8.inc.c"
 };
 
 const Texture texture_transition_bowser_half[] = {
-#include "textures/segment2/segment2.11458.ia8.inc.c"
+#include "textures/segment2/bowserfell.ia8.inc.c"
 };
 
 const Texture texture_waterbox_water[] = {

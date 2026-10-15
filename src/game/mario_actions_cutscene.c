@@ -2060,13 +2060,13 @@ static void end_peach_cutscene_summon_jumbo_star(struct MarioState *m) {
 // free peach from the stained glass window
 static void end_peach_cutscene_spawn_peach(struct MarioState *m) {
     if (m->actionTimer == 1) {
-        play_transition(WARP_TRANSITION_FADE_INTO_COLOR, 14, 255, 255, 255);
+        play_transition(WARP_TRANSITION_FADE_INTO_COLOR, 14, 255, 255, 0);
     }
     if (m->actionTimer == 2) {
         play_sound(SOUND_MENU_STAR_SOUND, gGlobalSoundSource);
     }
     if (m->actionTimer == 44) {
-        play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 192, 255, 255, 255);
+        play_transition(WARP_TRANSITION_FADE_FROM_COLOR, 192, 255, 255, 0);
     }
     if (m->actionTimer == 40) {
         obj_mark_for_deletion(sEndJumboStarObj);
