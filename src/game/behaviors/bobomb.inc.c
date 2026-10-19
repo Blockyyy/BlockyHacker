@@ -236,6 +236,9 @@ void bhv_bobomb_loop(void) {
     s8 dustPeriodMinus1;
 
     if (is_point_within_radius_of_mario(o->oPosX, o->oPosY, o->oPosZ, 4000)) {
+
+        try_to_spawn_object(50, 1.0f, o, MODEL_NONE, bhvSparkleSpawn);
+
         switch (o->oHeldState) {
             case HELD_FREE:
                 bobomb_free_loop();

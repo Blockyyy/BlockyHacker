@@ -10,6 +10,12 @@ void bhv_explosion_init(void) {
 void bhv_explosion_loop(void) {
     s32 i;
 
+    struct Object *sparkle = try_to_spawn_object(75, 1.0f, o, MODEL_SPARKLES_ANIMATION, bhvSparkle);
+    if (sparkle != NULL) {
+        obj_translate_xyz_random(sparkle, 300.0f);
+        obj_scale_random(sparkle, 2.5f, 0.0f);
+    }
+
     if (o->oTimer == 9) {
         if (find_water_level(o->oPosX, o->oPosZ) > o->oPosY) {
             for (i = 0; i < 40; i++) {
