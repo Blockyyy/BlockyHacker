@@ -1835,8 +1835,8 @@ Now, listen the fuck up.\n\
 Part of this slide is\n\
 covered in SANDPAPER.\n\
 Slide over that shit and\n\
-you're ass is getting\n\
-GRINDED.\n\
+your ass is getting\n\
+GROUNDED.\n\
 \n\
 \n\
 Press forward to haul ass,\n\
