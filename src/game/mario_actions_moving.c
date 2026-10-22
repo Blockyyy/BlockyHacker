@@ -266,6 +266,20 @@ s32 update_sliding(struct MarioState *m, f32 stopSpeed) {
         m->health -= 24;
         m->particleFlags |= PARTICLE_FIRE;
         cur_obj_play_sound_1(SOUND_ENV_SINK_QUICKSAND);
+
+        static u16 screamTimer = 0;
+        static u16 screamInterval = 0;
+
+        if (screamTimer == 0) {
+            screamInterval = 30 + (random_u16() % 61);
+            screamTimer = screamInterval;
+
+            u32 screamNoises[] = {SOUND_MARIO_ON_FIRE, SOUND_MARIO_DOH, SOUND_MARIO_WAAAOOOW};
+
+            play_sound_if_no_flag(m, screamNoises[random_u16() % 3], MARIO_MARIO_SOUND_PLAYED);
+        }
+
+        screamTimer--;
     }
 
     return stopped;

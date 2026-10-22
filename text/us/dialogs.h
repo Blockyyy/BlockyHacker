@@ -1822,18 +1822,34 @@ you won't recover\n\
 automatically.\n\
 //--The Snowman"))
 
-DEFINE_DIALOG(DIALOG_149, 1, 3, 30, 200, _("\
+DEFINE_DIALOG(DIALOG_149, 1, 4, 30, 200, _("\
 Welcome to\n\
 Princess Toadstool's\n\
-secret slide!\n\
+fucking 'secret' slide!\n\
 There's a Star hidden\n\
-here that Bowser couldn't\n\
-find.\n\
-When you slide, press\n\
-forward to speed up,\n\
-pull back to slow down.\n\
-If you slide really\n\
-fast, you'll win the Star!"))
+around here that Bowser\n\
+was too stupid to find.\n\
+\n\
+\n\
+Now, listen the fuck up.\n\
+Part of this slide is\n\
+covered in SANDPAPER.\n\
+Slide over that shit and\n\
+you're ass is getting\n\
+GRINDED.\n\
+\n\
+\n\
+Press forward to haul ass,\n\
+pull back to slow the fuck\n\
+down. Don't go too slow,\n\
+we don't have all day.\n\
+Wanna win that Star?\n\
+Then slide like your damn\n\
+life depends on it!\n\
+Just don't fucking bleed\n\
+all over the place,\n\
+because then I have to\n\
+clean that shit up!"))
 
 DEFINE_DIALOG(DIALOG_150, 1, 5, 30, 200, _("\
 Waaaa! You've flooded my\n\

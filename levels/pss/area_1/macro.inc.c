@@ -1,5 +1,9 @@
 const MacroObject pss_area_1_macro_objs[] = {
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_1up_sliding, -90, 362, -1858, 6906, 0x00000000),
+	MACRO_OBJECT_WITH_BEH_PARAM(macro_hidden_blue_coin, 90, 9835, 6479, -8992, 0x00000000),
+	MACRO_OBJECT_WITH_BEH_PARAM(macro_blue_coin_switch, 90, 14581, 6977, -10125, 0x00000000),
+	MACRO_OBJECT_WITH_BEH_PARAM(macro_hidden_blue_coin, 90, 7105, 5849, -8992, 0x00000000),
+	MACRO_OBJECT_WITH_BEH_PARAM(macro_hidden_blue_coin, 90, 4212, 5849, -8992, 0x00000000),
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_yellow_coin, -90, 2726, 5006, -9068, 0x00000000),
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_yellow_coin, -90, 1224, 4792, -8419, 0x00000000),
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_yellow_coin, -90, 604, 4573, -7113, 0x00000000),
@@ -38,6 +42,7 @@ const MacroObject pss_area_1_macro_objs[] = {
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_coin_line_horizontal, -90, 7114, 3436, -2918, 0x00000000),
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_coin_line_horizontal, -90, 5061, 3436, -3206, 0x00000000),
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_coin_line_horizontal, -90, 8919, 3436, -2620, 0x00000000),
+	MACRO_OBJECT_WITH_BEH_PARAM(macro_wooden_signpost, 90, 12244, 6977, -8427, DIALOG_149),
 	MACRO_OBJECT_WITH_BEH_PARAM(macro_box_star_1, -90, -14021, -4897, 11015, 0x00000000),
 	MACRO_OBJECT_END(),
 };
