@@ -262,6 +262,12 @@ s32 update_sliding(struct MarioState *m, f32 stopSpeed) {
         stopped = TRUE;
     }
 
+    if (m->floor->type == SURFACE_SAND_PAPER && newSpeed >= 15) {
+        m->health -= 24;
+        m->particleFlags |= PARTICLE_FIRE;
+        cur_obj_play_sound_1(SOUND_ENV_SINK_QUICKSAND);
+    }
+
     return stopped;
 }
 

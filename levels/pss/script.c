@@ -3,6 +3,7 @@
 #include "behavior_data.h"
 #include "model_ids.h"
 #include "seq_ids.h"
+#include "dialog_ids.h"
 #include "segment_symbols.h"
 #include "level_commands.h"
 
@@ -11,40 +12,43 @@
 #include "levels/scripts.h"
 
 #include "actors/common1.h"
-
 #include "make_const_nonconst.h"
 #include "levels/pss/header.h"
 
+/* Fast64 begin persistent block [scripts] */
+/* Fast64 end persistent block [scripts] */
+
 const LevelScript level_pss_entry[] = {
-    INIT_LEVEL(),
-    LOAD_YAY0(        /*seg*/ 0x07, _pss_segment_7SegmentRomStart, _pss_segment_7SegmentRomEnd),
-    LOAD_YAY0_TEXTURE(/*seg*/ 0x09, _mountain_yay0SegmentRomStart, _mountain_yay0SegmentRomEnd),
-    LOAD_YAY0(        /*seg*/ 0x05, _group8_yay0SegmentRomStart, _group8_yay0SegmentRomEnd),
-    LOAD_RAW(         /*seg*/ 0x0C, _group8_geoSegmentRomStart,  _group8_geoSegmentRomEnd),
-    LOAD_YAY0(        /*seg*/ 0x08, _common0_yay0SegmentRomStart, _common0_yay0SegmentRomEnd),
-    LOAD_RAW(         /*seg*/ 0x0F, _common0_geoSegmentRomStart,  _common0_geoSegmentRomEnd),
-    ALLOC_LEVEL_POOL(),
-    MARIO(/*model*/ MODEL_MARIO, /*behParam*/ 0x00000001, /*beh*/ bhvMario),
-    JUMP_LINK(script_func_global_1),
-    JUMP_LINK(script_func_global_9),
+	INIT_LEVEL(),
+	LOAD_YAY0(0x07, _pss_segment_7SegmentRomStart, _pss_segment_7SegmentRomEnd), 
+	LOAD_YAY0_TEXTURE(0x09, _mountain_yay0SegmentRomStart, _mountain_yay0SegmentRomEnd), 
+	LOAD_YAY0(0x05, _group8_yay0SegmentRomStart, _group8_yay0SegmentRomEnd), 
+	LOAD_RAW(0x0C, _group8_geoSegmentRomStart, _group8_geoSegmentRomEnd), 
+	LOAD_YAY0(0x08, _common0_yay0SegmentRomStart, _common0_yay0SegmentRomEnd), 
+	LOAD_RAW(0x0F, _common0_geoSegmentRomStart, _common0_geoSegmentRomEnd), 
+	ALLOC_LEVEL_POOL(),
+	MARIO(MODEL_MARIO, 0x00000001, bhvMario), 
+	JUMP_LINK(script_func_global_1), 
+	JUMP_LINK(script_func_global_9), 
+	/* Fast64 begin persistent block [level commands] */
+	/* Fast64 end persistent block [level commands] */
 
-    AREA(/*index*/ 1, pss_geo_000100),
-        OBJECT(/*model*/ MODEL_NONE, /*pos*/ 5632, 6751, -5631, /*angle*/ 0, 270, 0, /*behParam*/ 0x000A0000, /*beh*/ bhvAirborneWarp),
-        WARP_NODE(/*id*/ 0x0A, /*destLevel*/ LEVEL_PSS, /*destArea*/ 0x01, /*destNode*/ 0x0A, /*flags*/ WARP_NO_CHECKPOINT),
-        WARP_NODE(/*id*/ 0xF3, /*destLevel*/ LEVEL_CASTLE, /*destArea*/ 0x01, /*destNode*/ 0x20, /*flags*/ WARP_NO_CHECKPOINT),
-        WARP_NODE(/*id*/ 0xF0, /*destLevel*/ LEVEL_CASTLE, /*destArea*/ 0x01, /*destNode*/ 0x26, /*flags*/ WARP_NO_CHECKPOINT),
-        WARP_NODE(/*id*/ 0xF1, /*destLevel*/ LEVEL_CASTLE, /*destArea*/ 0x01, /*destNode*/ 0x23, /*flags*/ WARP_NO_CHECKPOINT),
-        TERRAIN(/*terrainData*/ pss_seg7_collision),
-        MACRO_OBJECTS(/*objList*/ pss_seg7_macro_objs),
-        TERRAIN_TYPE(/*terrainType*/ TERRAIN_SLIDE),
-        SET_BACKGROUND_MUSIC(/*settingsPreset*/ 0x0001, /*seq*/ SEQ_LEVEL_SLIDE),
-    END_AREA(),
-
-    FREE_LEVEL_POOL(),
-    MARIO_POS(/*area*/ 1, /*yaw*/ 270, /*pos*/ 5632, 6451, -5631),
-    CALL(/*arg*/ 0, /*func*/ lvl_init_or_update),
-    CALL_LOOP(/*arg*/ 1, /*func*/ lvl_init_or_update),
-    CLEAR_LEVEL(),
-    SLEEP_BEFORE_EXIT(/*frames*/ 1),
-    EXIT(),
+	AREA(1, pss_area_1),
+		WARP_NODE(0x0A, LEVEL_PSS, 0x01, 0x0A, WARP_NO_CHECKPOINT),
+		MARIO_POS(0x01, -90, 14444, 7917, -8983),
+		OBJECT(MODEL_NONE, 14444, 7917, -8983, 0, 0, 0, (0x0A << 16), bhvSpinAirborneWarp),
+		TERRAIN(pss_area_1_collision),
+		MACRO_OBJECTS(pss_area_1_macro_objs),
+		SET_BACKGROUND_MUSIC(0x0001, SEQ_LEVEL_SLIDE),
+		TERRAIN_TYPE(TERRAIN_SLIDE),
+		/* Fast64 begin persistent block [area commands] */
+		/* Fast64 end persistent block [area commands] */
+	END_AREA(),
+	FREE_LEVEL_POOL(),
+	MARIO_POS(0x01, -90, 14444, 7917, -8983),
+	CALL(0, lvl_init_or_update),
+	CALL_LOOP(1, lvl_init_or_update),
+	CLEAR_LEVEL(),
+	SLEEP_BEFORE_EXIT(1),
+	EXIT(),
 };

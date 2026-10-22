@@ -286,7 +286,7 @@ static s32 surface_has_force(s32 surfaceType) {
     s32 hasForce = FALSE;
 
     switch (surfaceType) {
-        case SURFACE_0004: // Unused
+        //case SURFACE_0004: // Unused
         case SURFACE_FLOWING_WATER:
         case SURFACE_DEEP_MOVING_QUICKSAND:
         case SURFACE_SHALLOW_MOVING_QUICKSAND:
