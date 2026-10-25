@@ -2,22 +2,22 @@
 
 // 0x0801DA60
 ALIGNED8 static const Texture bobomb_seg8_texture_0801DA60[] = {
-#include "actors/bobomb/bob-omb_left_side.rgba16.inc.c"
+#include "actors/bobomb/fellbob-omb_left_side.rgba16.inc.c"
 };
 
 // 0x0801EA60
 ALIGNED8 static const Texture bobomb_seg8_texture_0801EA60[] = {
-#include "actors/bobomb/bob-omb_right_side.rgba16.inc.c"
+#include "actors/bobomb/fellbob-omb_right_side.rgba16.inc.c"
 };
 
 // 0x0801FA60
 ALIGNED8 static const Texture bobomb_seg8_texture_0801FA60[] = {
-#include "actors/bobomb/bob-omb_buddy_left_side.rgba16.inc.c"
+#include "actors/bobomb/fellbob-omb_buddy_left_side.rgba16.inc.c"
 };
 
 // 0x08020A60
 ALIGNED8 static const Texture bobomb_seg8_texture_08020A60[] = {
-#include "actors/bobomb/bob-omb_buddy_right_side.rgba16.inc.c"
+#include "actors/bobomb/fellbob-omb_buddy_right_side.rgba16.inc.c"
 };
 
 // 0x08021A60
