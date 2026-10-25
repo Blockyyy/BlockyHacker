@@ -4,7 +4,7 @@
 
 // 0x05009900
 ALIGNED8 static const Texture thwomp_seg5_texture_05009900[] = {
-#include "actors/thwomp/thwomp_face.rgba16.inc.c"
+#include "actors/thwomp/fellthwomp_face.rgba16.inc.c"
 };
 
 // 0x0500A900
