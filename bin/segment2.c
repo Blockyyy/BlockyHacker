@@ -2441,27 +2441,46 @@ const Gfx dl_ia_text_end[] = {
     gsSPEndDisplayList(),
 };
 
-// 0x0200EF30 - 0x0200EF60
-static const Vtx vertex_triangle[] = {
-    {{{     0,      0,      0}, 0, {     0,      0}, {0xff, 0xff, 0xff, 0xff}}},
-    {{{     8,      8,      0}, 0, {     0,      0}, {0xff, 0xff, 0xff, 0xff}}},
-    {{{     0,     16,      0}, 0, {     0,      0}, {0xff, 0xff, 0xff, 0xff}}},
+Vtx dl_draw_triangle_mesh_dl_draw_triangle_mesh_mesh_layer_1_vtx_0[4] = {
+	{{ {0, 8, 0}, 0, {16, 16}, {255, 255, 255, 255} }},
+	{{ {-5, 0, 0}, 0, {16, 16}, {255, 255, 255, 255} }},
+	{{ {8, 8, 0}, 0, {16, 16}, {255, 255, 255, 255} }},
+	{{ {-5, 16, 0}, 0, {16, 16}, {255, 255, 255, 255} }},
 };
 
-// 0x0200EF60 - 0x0200EFB0
-const Gfx dl_draw_triangle[] = {
-    gsSPClearGeometryMode(G_LIGHTING),
-    gsDPSetCombineMode(G_CC_FADE, G_CC_FADE),
-    gsDPSetRenderMode(G_RM_XLU_SURF, G_RM_XLU_SURF2),
-    gsDPSetTextureFilter(G_TF_POINT),
-    gsSPVertex(vertex_triangle, 3, 0),
-    gsSP1Triangle( 0,  1,  2, 0x0),
-    gsSPSetGeometryMode(G_LIGHTING),
-    gsDPPipeSync(),
-    gsDPSetRenderMode(G_RM_AA_ZB_OPA_SURF, G_RM_AA_ZB_OPA_SURF2),
-    gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
-    gsSPEndDisplayList(),
+Gfx dl_draw_triangle_mesh_dl_draw_triangle_mesh_mesh_layer_1_tri_0[] = {
+	gsSPVertex(dl_draw_triangle_mesh_dl_draw_triangle_mesh_mesh_layer_1_vtx_0 + 0, 4, 0),
+	gsSP1Triangle(0, 1, 2, 0),
+	gsSP1Triangle(0, 2, 3, 0),
+	gsSPEndDisplayList(),
 };
+
+
+Gfx mat_dl_draw_triangle_mesh_f3dlite_material_001_layer1[] = {
+	gsSPClearGeometryMode(G_LIGHTING),
+	gsDPPipeSync(),
+	gsDPSetCombineLERP(SHADE, 0, ENVIRONMENT, 0, SHADE, 0, ENVIRONMENT, 0, SHADE, 0, ENVIRONMENT, 0, SHADE, 0, ENVIRONMENT, 0),
+	gsDPSetAlphaDither(G_AD_NOISE),
+	gsDPSetTextureFilter(G_TF_POINT),
+	gsSPEndDisplayList(),
+};
+
+Gfx mat_revert_dl_draw_triangle_mesh_f3dlite_material_001_layer1[] = {
+	gsSPSetGeometryMode(G_LIGHTING),
+	gsDPPipeSync(),
+	gsDPSetAlphaDither(G_AD_DISABLE),
+	gsDPSetTextureFilter(G_TF_BILERP),
+	gsDPSetRenderMode(G_RM_AA_ZB_OPA_SURF, G_RM_AA_ZB_OPA_SURF2),
+	gsSPEndDisplayList(),
+};
+
+const Gfx dl_draw_triangle[] = {
+	gsSPDisplayList(mat_dl_draw_triangle_mesh_f3dlite_material_001_layer1),
+	gsSPDisplayList(dl_draw_triangle_mesh_dl_draw_triangle_mesh_mesh_layer_1_tri_0),
+	gsDPPipeSync(),
+	gsSPEndDisplayList(),
+};
+
 
 // 0x0200EFB0 - 0x0200EFF0
 static const Vtx vertex_billboard_num[] = {

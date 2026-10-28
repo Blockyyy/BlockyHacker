@@ -1,12 +1,16 @@
-// 0x16000FB4
+#include "src/game/envfx_snow.h"
+
 const GeoLayout wooden_signpost_geo[] = {
-   GEO_SHADOW(SHADOW_CIRCLE_4_VERTS, 0xC8, 60),
-   GEO_OPEN_NODE(),
-      GEO_SCALE(0x00, 16384),
-      GEO_OPEN_NODE(),
-         GEO_DISPLAY_LIST(LAYER_OPAQUE, wooden_signpost_seg3_dl_0302DA48),
-         GEO_DISPLAY_LIST(LAYER_OPAQUE, wooden_signpost_seg3_dl_0302DD08),
-      GEO_CLOSE_NODE(),
-   GEO_CLOSE_NODE(),
-   GEO_END(),
+	GEO_NODE_START(),
+	GEO_OPEN_NODE(),
+		GEO_SHADOW(1, 200, 60),
+		GEO_OPEN_NODE(),
+			GEO_SCALE(LAYER_FORCE, 16384),
+			GEO_OPEN_NODE(),
+				GEO_DISPLAY_LIST(LAYER_OPAQUE, wooden_signpost_002_displaylist_mesh_layer_1),
+				GEO_DISPLAY_LIST(LAYER_OPAQUE, wooden_signpost_003_displaylist_mesh_layer_1_with_revert),
+			GEO_CLOSE_NODE(),
+		GEO_CLOSE_NODE(),
+	GEO_CLOSE_NODE(),
+	GEO_END(),
 };

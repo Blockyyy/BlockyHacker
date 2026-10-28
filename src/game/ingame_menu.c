@@ -762,14 +762,14 @@ void render_dialog_box_type(struct DialogEntry *dialog, s8 linesPerBox) {
                 // convert the speed into angle
                 create_dl_rotation_matrix(MENU_MTX_NOPUSH, (gDialogBoxOpenTimer * 4.0f), 0, 0, 1.0f);
             }
-            gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 150);
+            gDPSetEnvColor(gDisplayListHead++, 164, 24, 32, 150);
             break;
-        case DIALOG_TYPE_ZOOM: // Renders a dialog white box with zoom
+            case DIALOG_TYPE_ZOOM: // Renders a dialog white box with zoom
             if (gDialogBoxState == DIALOG_STATE_OPENING || gDialogBoxState == DIALOG_STATE_CLOSING) {
                 create_dl_translation_matrix(MENU_MTX_NOPUSH, (65.0f - (65.0f / gDialogBoxScale)), ((40.0f / gDialogBoxScale) - 40), 0);
                 create_dl_scale_matrix(MENU_MTX_NOPUSH, (1.0f / gDialogBoxScale), (1.0f / gDialogBoxScale), 1.0f);
             }
-            gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, 150);
+            gDPSetEnvColor(gDisplayListHead++, 255, 215, 0, 150);
             break;
     }
 
@@ -1019,11 +1019,7 @@ void render_dialog_triangle_choice(void) {
 
     create_dl_translation_matrix(MENU_MTX_NOPUSH, (gDialogLineNum * X_VAL4_1) - X_VAL4_2, Y_VAL4_1 - (gLastDialogLineNum * Y_VAL4_2), 0);
 
-    if (gDialogBoxType == DIALOG_TYPE_ROTATE) {
-        gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, 255);
-    } else {
-        gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 255);
-    }
+    gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 255);
 
     gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
 }
@@ -1044,11 +1040,7 @@ void render_dialog_triangle_next(s8 linesPerBox) {
     create_dl_scale_matrix(MENU_MTX_NOPUSH, X_Y_VAL6, X_Y_VAL6, 1.0f);
     create_dl_rotation_matrix(MENU_MTX_NOPUSH, -DEFAULT_DIALOG_BOX_ANGLE, 0, 0, 1.0f);
 
-    if (gDialogBoxType == DIALOG_TYPE_ROTATE) { // White Text
-        gDPSetEnvColor(gDisplayListHead++, 255, 255, 255, 255);
-    } else { // Black Text
-        gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 255);
-    }
+    gDPSetEnvColor(gDisplayListHead++, 0, 0, 0, 255);
 
     gSPDisplayList(gDisplayListHead++, dl_draw_triangle);
     gSPPopMatrix(gDisplayListHead++, G_MTX_MODELVIEW);
