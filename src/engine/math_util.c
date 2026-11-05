@@ -12,7 +12,6 @@
 #include "config.h"
 #include "config/config_world.h"
 
-
 Vec3f gVec3fX    = {  1.0f,  0.0f,  0.0f };
 Vec3f gVec3fY    = {  0.0f,  1.0f,  0.0f };
 Vec3f gVec3fZ    = {  0.0f,  0.0f,  1.0f };

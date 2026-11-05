@@ -1,0 +1,16 @@
+extern const GeoLayout sa_square_floating_platform_geo[];
+extern Lights1 sa_square_floating_platform_f3dlite_material_010_layer1_lights;
+extern Lights1 sa_square_floating_platform_f3dlite_material_009_layer1_lights;
+extern u8 sa_square_floating_platform_sa_platform_2_ci8[];
+extern u8 sa_square_floating_platform_sa_platform_2_pal_rgba16[];
+extern u8 sa_square_floating_platform_sa_platform_1_ci8[];
+extern u8 sa_square_floating_platform_sa_platform_1_pal_rgba16[];
+extern Vtx sa_square_floating_platform_001_displaylist_mesh_layer_1_vtx_0[16];
+extern Gfx sa_square_floating_platform_001_displaylist_mesh_layer_1_tri_0[];
+extern Vtx sa_square_floating_platform_001_displaylist_mesh_layer_1_vtx_1[8];
+extern Gfx sa_square_floating_platform_001_displaylist_mesh_layer_1_tri_1[];
+extern Gfx mat_sa_square_floating_platform_f3dlite_material_010_layer1[];
+extern Gfx mat_revert_sa_square_floating_platform_f3dlite_material_010_layer1[];
+extern Gfx mat_sa_square_floating_platform_f3dlite_material_009_layer1[];
+extern Gfx mat_revert_sa_square_floating_platform_f3dlite_material_009_layer1[];
+extern Gfx sa_square_floating_platform_001_displaylist_mesh_layer_1_with_revert[];

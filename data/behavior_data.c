@@ -389,6 +389,19 @@ enum BehaviorCommands {
     BC_BPTR(BHV_CMD_SPAWN_WATER_DROPLET, dropletParams)
 
 
+/* fast64 object exports get inserted here */
+const BehaviorScript bhvSaSquareFloatingPlatform[] = {
+	BEGIN(OBJ_LIST_SURFACE),
+	OR_INT(oFlags, OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE),
+	LOAD_COLLISION_DATA(sa_square_floating_platform_collision),
+	SET_FLOAT(oFloatingPlatformHeightOffset, 64),
+	SET_HOME(),
+	BEGIN_LOOP(),
+		CALL_NATIVE(bhv_floating_platform_loop),
+		CALL_NATIVE(load_object_collision_model),
+	END_LOOP(),
+};
+
 const BehaviorScript bhvStarDoor[] = {
     BEGIN(OBJ_LIST_SURFACE),
     SET_INT(oInteractType, INTERACT_DOOR),
@@ -2689,6 +2702,22 @@ const BehaviorScript bhvSushiShark[] = {
     SET_INT(oIntangibleTimer, 0),
     BEGIN_LOOP(),
         CALL_NATIVE(bhv_sushi_shark_loop),
+    END_LOOP(),
+};
+
+const BehaviorScript bhvSaSushiShark[] = {
+        BEGIN(OBJ_LIST_GENACTOR),
+    OR_INT(oFlags, (OBJ_FLAG_COMPUTE_DIST_TO_MARIO | OBJ_FLAG_SET_FACE_YAW_TO_MOVE_YAW | OBJ_FLAG_UPDATE_GFX_POS_AND_ANGLE)),
+    LOAD_ANIMATIONS(oAnimations, sushi_seg5_anims_0500AE54),
+    SET_HITBOX_WITH_OFFSET(/*Radius*/ 100, /*Height*/ 50, /*Downwards offset*/ 50),
+    SET_INTERACT_TYPE(INTERACT_DAMAGE),
+    SET_INT(oDamageOrCoinValue, 3),
+    SET_HOME(),
+    SUM_INT(oSushiSharkAngleFromHome, oSushiSharkAngleFromHome, oFaceAngleYaw),
+    ANIMATE(SUSHI_ANIM_SWIM),
+    SET_INT(oIntangibleTimer, 0),
+    BEGIN_LOOP(),
+        CALL_NATIVE(bhv_sa_sushi_shark_loop),
     END_LOOP(),
 };
 

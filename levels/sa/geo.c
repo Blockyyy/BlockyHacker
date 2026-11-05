@@ -14,3 +14,5 @@
 #include "levels/sa/header.h"
 
 #include "levels/sa/areas/1/geo.inc.c"
+#include "geo.inc.c"
+#include "sa_square_floating_platform/geo.inc.c"

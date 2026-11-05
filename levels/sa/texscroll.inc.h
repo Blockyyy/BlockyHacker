@@ -1,0 +1,2 @@
+extern void scroll_sa_dl_001_LAYER_TRANSPARENT_sa_seg7_dl_07002FD0_mesh_mesh_layer_5_vtx_1();
+extern void scroll_sa();

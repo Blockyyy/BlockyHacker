@@ -3,6 +3,9 @@
 
 #include "types.h"
 
+/* fast64 object exports get inserted here */
+extern const BehaviorScript bhvSaSquareFloatingPlatform[];
+
 extern const BehaviorScript bhvStarDoor[];
 extern const BehaviorScript bhvMrI[];
 extern const BehaviorScript bhvMrIIris[];
@@ -220,6 +223,7 @@ extern const BehaviorScript bhvRockSolid[];
 extern const BehaviorScript bhvBowserSubDoor[];
 extern const BehaviorScript bhvBowsersSub[];
 extern const BehaviorScript bhvSushiShark[];
+extern const BehaviorScript bhvSaSushiShark[];
 extern const BehaviorScript bhvJrbSlidingBox[];
 extern const BehaviorScript bhvShipPart3[];
 extern const BehaviorScript bhvInSunkenShip3[];

@@ -14,9 +14,14 @@
 
 
 #include "src/game/texscroll/castle_inside_texscroll.inc.c"
+#include "src/game/texscroll/sa_texscroll.inc.c"
 void scroll_textures() {
 	if(SCROLL_CONDITION(sSegmentROMTable[0x7] == (uintptr_t)_castle_inside_segment_7SegmentRomStart)) {
 		scroll_textures_castle_inside();
+	}
+
+	if(SCROLL_CONDITION(sSegmentROMTable[0x7] == (uintptr_t)_sa_segment_7SegmentRomStart)) {
+		scroll_textures_sa();
 	}
 
 }

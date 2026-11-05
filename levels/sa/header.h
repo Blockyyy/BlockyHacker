@@ -15,4 +15,7 @@ extern const MacroObject sa_seg7_macro_objs[];
 // script
 extern const LevelScript level_sa_entry[];
 
+#include "header.inc.h"
+#include "sa_square_floating_platform/collision_header.h"
+#include "sa_square_floating_platform/geo_header.h"
 #endif
