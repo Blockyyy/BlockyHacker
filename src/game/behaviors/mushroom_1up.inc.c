@@ -3,6 +3,10 @@
 void bhv_1up_interact(void) {
     if (obj_check_if_collided_with_object(o, gMarioObject)) {
         play_sound(SOUND_GENERAL_COLLECT_1UP, gGlobalSoundSource);
+        if (gMarioState->health > 0x2FF) {
+            gMarioState->hurtCounter += 8;
+            play_sound_if_no_flag(gMarioState, SOUND_MARIO_ATTACKED, MARIO_MARIO_SOUND_PLAYED);
+        }
 #ifdef MUSHROOMS_HEAL
         gMarioState->healCounter   = 31;
 #ifdef BREATH_METER
