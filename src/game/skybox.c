@@ -11,6 +11,9 @@
 #include "sm64.h"
 #include "geo_commands.h"
 #include "color_presets.h"
+#include "game_init.h"
+#include "audio/external.h"
+#include "geo_commands.h"
 
 /**
  * @file skybox.c
@@ -258,24 +261,67 @@ void *create_skybox_ortho_matrix(s8 player) {
     return mtx;
 }
 
+#define G_CC_SKYBOX_FLASH2 PRIMITIVE, COMBINED, PRIMITIVE_ALPHA, COMBINED, 0, 0, 0, COMBINED
+#define LIGHTNING_MIN_DELAY   (30 * 5)
+
+static const u8 sFlicker[] = { 255, 255, 90, 255 };
+static u8  sSkyFlashColor[3] = { 255, 255, 255 };
+static s16 sSkyFlashAlpha = 0;
+static u16 sLightningTimer = LIGHTNING_MIN_DELAY;
+
+void skybox_set_flash_alpha(u8 alpha) {
+    sSkyFlashAlpha = alpha;
+}
+
+static void skybox_update_lightning(s8 background) {
+    if (sLightningTimer < LIGHTNING_MIN_DELAY) {
+        sLightningTimer++;
+    } else if (background == BACKGROUND_STORM_CLOUDS && random_u16() % 300 == 0) {
+        sLightningTimer = 0;
+        set_camera_shake_from_hit(3);
+    }
+
+    if (sLightningTimer < ARRAY_COUNT(sFlicker)) {
+        sSkyFlashAlpha = sFlicker[sLightningTimer];
+    } else if (sSkyFlashAlpha > 0) {
+        sSkyFlashAlpha -= 12;
+        if (sSkyFlashAlpha < 0) {
+            sSkyFlashAlpha = 0;
+        }
+    }
+
+    if (sLightningTimer == 10) {
+        play_sound(SOUND_ENV_LIGHTNING, gGlobalSoundSource);
+    }
+}
+
 /**
  * Creates the skybox's display list, then draws the 3x3 grid of tiles.
  */
 Gfx *init_skybox_display_list(s8 player, s8 background, s8 colorIndex) {
-    s32 dlCommandCount = 5 + (3 * 3) * 7; // 5 for the start and end, plus 9 skybox tiles
-    void *skybox = alloc_display_list(dlCommandCount * sizeof(Gfx) * sqr(SKYBOX_SIZE));
+    s32 dlCommandCount = 5 + (3 * 3) * 7 + 4;
+    void *skybox = alloc_display_list(dlCommandCount * sizeof(Gfx));
     Gfx *dlist = skybox;
 
     if (skybox == NULL) {
         return NULL;
     } else {
         Mtx *ortho = create_skybox_ortho_matrix(player);
+        u8 flashing = (sSkyFlashAlpha > 0);
 
         gSPDisplayList(dlist++, dl_skybox_begin);
+        if (flashing) {
+            gDPSetCycleType(dlist++, G_CYC_2CYCLE);
+            gDPSetCombineMode(dlist++, G_CC_MODULATERGB, G_CC_SKYBOX_FLASH2);
+            gDPSetPrimColor(dlist++, 0, 0, sSkyFlashColor[0], sSkyFlashColor[1], sSkyFlashColor[2], sSkyFlashAlpha);
+        }
         gSPMatrix(dlist++, VIRTUAL_TO_PHYSICAL(ortho), G_MTX_PROJECTION | G_MTX_MUL | G_MTX_NOPUSH);
         gSPDisplayList(dlist++, dl_skybox_tile_tex_settings);
         draw_skybox_tile_grid(&dlist, background, player, colorIndex);
         gSPDisplayList(dlist++, dl_skybox_end);
+        if (flashing) {
+            gDPSetCycleType(dlist++, G_CYC_1CYCLE);
+        }
         gSPEndDisplayList(dlist);
     }
     return skybox;
@@ -312,6 +358,7 @@ Gfx *create_skybox_facing_camera(s8 player, s8 background, f32 fov, Vec3f pos, V
     sSkyBoxInfo[player].scaledX = calculate_skybox_scaled_x(player, fov);
     sSkyBoxInfo[player].scaledY = calculate_skybox_scaled_y(player, fov);
     sSkyBoxInfo[player].upperLeftTile = get_top_left_tile_idx(player);
+    skybox_update_lightning(background);
 
     return init_skybox_display_list(player, background, colorIndex);
 }

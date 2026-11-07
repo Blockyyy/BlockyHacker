@@ -4492,6 +4492,7 @@ sound_ref .chan_1D81
 sound_ref .sound_env_water_drain
 sound_ref .sound_env_metal_box_push
 sound_ref .sound_env_sink_quicksand
+sound_ref .sound_env_lightning
 sound_ref .sound_air_peach_twinkle
 sound_ref .sound_env_elevator1
 sound_ref .sound_env_droning1
@@ -4930,6 +4931,16 @@ layer_somethingon
 .layer_1E2D:
 layer_note1 35, 0x12c, 100
 layer_jump .layer_1E2D
+layer_end
+
+.sound_env_lightning:
+chan_setbank 3
+chan_setinstr 10
+chan_setlayer 0, .layer_lightning
+chan_end
+
+.layer_lightning:
+layer_note1 39, 0x2A0, 127
 layer_end
 
 .sound_air_peach_twinkle:
