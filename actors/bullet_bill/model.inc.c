@@ -4,12 +4,12 @@
 
 // 0x0500BAA8
 ALIGNED8 static const Texture bullet_bill_seg5_texture_0500BAA8[] = {
-#include "actors/bullet_bill/bullet_bill_eye.rgba16.inc.c"
+#include "actors/bullet_bill/fellbullet_bill_eye.rgba16.inc.c"
 };
 
 // 0x0500CAA8
 ALIGNED8 static const Texture bullet_bill_seg5_texture_0500CAA8[] = {
-#include "actors/bullet_bill/bullet_bill_mouth.rgba16.inc.c"
+#include "actors/bullet_bill/fellbullet_bill_mouth.rgba16.inc.c"
 };
 
 // 0x0500DAA8

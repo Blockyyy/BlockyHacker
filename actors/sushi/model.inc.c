@@ -7,12 +7,12 @@ UNUSED static const u64 sushi_unused_1 = 1;
 
 // 0x05008ED0
 ALIGNED8 static const Texture sushi_seg5_texture_05008ED0[] = {
-#include "actors/sushi/sushi_snout.rgba16.inc.c"
+#include "actors/sushi/fellsushi_snout.rgba16.inc.c"
 };
 
 // 0x050096D0
 ALIGNED8 static const Texture sushi_seg5_texture_050096D0[] = {
-#include "actors/sushi/sushi_eye.rgba16.inc.c"
+#include "actors/sushi/fellsushi_eye.rgba16.inc.c"
 };
 
 // 0x05009AD0

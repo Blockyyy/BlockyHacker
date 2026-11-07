@@ -20,7 +20,7 @@ void mr_i_piranha_particle_act_move(void) {
     vec3f_add(&o->oPosVec, &o->oVelVec);
 #endif
 
-    cur_obj_scale(3.0f);
+    cur_obj_scale(5.0f);
     o->oForwardVel = 20.0f;
     cur_obj_update_floor_and_walls();
 
