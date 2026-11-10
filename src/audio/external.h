@@ -72,6 +72,15 @@ void play_power_star_jingle(void);
 void play_race_fanfare(void);
 void play_toads_jingle(void);
 void sound_reset(u8 reverbPresetId);
+u32 seq_player_get_tatum(u8 player);
+u8 seq_player_get_seq_id(u8 player);
+u32 seq_player_get_pc_offset(u8 player);
+void seq_player_set_tatum(u8 player, u32 tatum);
+void seq_player_schedule_jump(u8 player, u32 at, u32 to);
+void seq_player_cancel_jump(u8 player);
+u8 seq_player_jump_pending(u8 player);
+void seq_player_set_channel_volume(u8 player, u8 channel, f32 volume);
+void seq_player_clear_channel_volumes(u8 player);
 
 void audio_init(void); // in load.c
 

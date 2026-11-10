@@ -33,6 +33,7 @@
 #include "puppyprint.h"
 #include "level_commands.h"
 #include "debug.h"
+#include "dynamic_music.h"
 
 #include "config.h"
 
@@ -1039,6 +1040,7 @@ s32 play_mode_normal(void) {
     area_update_objects();
 #endif
     update_hud_values();
+    dynamic_music_update();
     if (gCurrentArea != NULL) {
 #ifdef PUPPYPRINT_DEBUG
 #ifdef BETTER_REVERB

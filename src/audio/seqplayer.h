@@ -25,5 +25,6 @@ void *audio_list_pop_back(struct AudioListItem *list);
 void process_sequences(s32 iterationsRemaining);
 void init_sequence_player(u32 player);
 void init_sequence_players(void);
+u16 seq_player_get_play_count(u8 player);
 
 #endif // AUDIO_SEQPLAYER_H

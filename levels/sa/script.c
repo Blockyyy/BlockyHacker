@@ -84,7 +84,7 @@ const LevelScript level_sa_entry[] = {
 		OBJECT(MODEL_NONE, 0, -1535, 0, 0, 90, 0, 0x000A0000, bhvSpinAirborneWarp),
 		TERRAIN(sa_area_1_collision),
 		MACRO_OBJECTS(sa_area_1_macro_objs),
-		SET_BACKGROUND_MUSIC(0x0003, SEQ_LEVEL_WATER),
+		SET_BACKGROUND_MUSIC(0x0000, SEQ_LEVEL_DDD),
 		TERRAIN_TYPE(TERRAIN_WATER),
 		/* Fast64 begin persistent block [area commands] */
 		/* Fast64 end persistent block [area commands] */

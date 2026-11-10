@@ -48,6 +48,7 @@ enum SeqId {
     SEQ_LEVEL_FELL_CASTLE,            // 0x23
     SEQ_LEVEL_FILE_NEGLECT,           // 0x24
     SEQ_LEVEL_SCRAPER,                // 0x25
+    SEQ_LEVEL_DDD,                    // 0x26
     SEQ_COUNT
 };
 

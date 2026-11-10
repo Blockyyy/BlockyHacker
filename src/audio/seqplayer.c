@@ -2295,6 +2295,7 @@ void sequence_player_process_sequence(struct SequencePlayer *seqPlayer) {
         return;
     }
     seqPlayer->tempoAcc -= (u16) gTempoInternalToExternal;
+    seqPlayer->tatumPos++;
 
     state = &seqPlayer->scriptState;
     if (seqPlayer->delay > 1) {
@@ -2685,9 +2686,220 @@ void sequence_player_process_sequence(struct SequencePlayer *seqPlayer) {
     }
 }
 
+static volatile u32 sSeqSeekRequest[SEQUENCE_PLAYERS];
+static volatile u32 sSeqJumpAt[SEQUENCE_PLAYERS];
+static volatile u32 sSeqJumpTo[SEQUENCE_PLAYERS];
+static volatile f32 sSeqChanVolume[SEQUENCE_PLAYERS][CHANNELS_MAX];
+static volatile u16 sSeqChanVolumeMask[SEQUENCE_PLAYERS];
+static volatile u16 sSeqPlayCount[SEQUENCE_PLAYERS];
+
+u32 seq_player_get_tatum(u8 player) {
+    return gSequencePlayers[player].tatumPos;
+}
+
+u8 seq_player_get_seq_id(u8 player) {
+    return gSequencePlayers[player].enabled ? gSequencePlayers[player].seqId : 0xFF;
+}
+
+u32 seq_player_get_pc_offset(u8 player) {
+    struct SequencePlayer *seqPlayer = &gSequencePlayers[player];
+    return seqPlayer->scriptState.pc - seqPlayer->seqData;
+}
+
+void seq_player_set_tatum(u8 player, u32 tatum) {
+    sSeqSeekRequest[player] = tatum + 1;
+}
+
+void seq_player_schedule_jump(u8 player, u32 at, u32 to) {
+    sSeqJumpAt[player] = 0;
+    sSeqJumpTo[player] = to;
+    sSeqJumpAt[player] = at + 1;
+}
+
+void seq_player_cancel_jump(u8 player) {
+    sSeqJumpAt[player] = 0;
+}
+
+void seq_player_set_channel_volume(u8 player, u8 channel, f32 volume) {
+    sSeqChanVolume[player][channel] = volume;
+    sSeqChanVolumeMask[player] |= (1 << channel);
+}
+
+void seq_player_clear_channel_volumes(u8 player) {
+    sSeqChanVolumeMask[player] = 0;
+}
+
+u16 seq_player_get_play_count(u8 player) {
+    return sSeqPlayCount[player];
+}
+
+u8 seq_player_jump_pending(u8 player) {
+    return sSeqJumpAt[player] != 0;
+}
+
+static void sequence_player_restart(struct SequencePlayer *seqPlayer) {
+    sequence_player_disable_channels(seqPlayer, 0xFFFF);
+    seqPlayer->scriptState.pc = seqPlayer->seqData;
+    seqPlayer->scriptState.depth = 0;
+    seqPlayer->delay = 0;
+    seqPlayer->tempoAcc = 0;
+    seqPlayer->tempo = 120 * TEMPO_SCALE;
+    seqPlayer->transposition = 0;
+    seqPlayer->tatumPos = 0;
+}
+
+static u32 sequence_player_idle_tatums(struct SequencePlayer *seqPlayer) {
+    u32 idle = (seqPlayer->delay > 1) ? seqPlayer->delay - 1 : 0;
+    s32 i, j;
+
+    for (i = 0; i < CHANNELS_MAX && idle > 0; i++) {
+        struct SequenceChannel *seqChannel = seqPlayer->channels[i];
+        if (!IS_SEQUENCE_CHANNEL_VALID(seqChannel) || !seqChannel->enabled) {
+            continue;
+        }
+        if (!seqChannel->stopScript) {
+            idle = MIN(idle, (seqChannel->delay > 1) ? (u32) seqChannel->delay - 1 : 0);
+        }
+        for (j = 0; j < LAYERS_MAX; j++) {
+            struct SequenceChannelLayer *layer = seqChannel->layers[j];
+            if (layer != NULL && layer->enabled) {
+                idle = MIN(idle, (layer->delay > 1) ? (u32) layer->delay - 1 : 0);
+            }
+        }
+    }
+    return idle;
+}
+
+static void sequence_player_skip_tatums(struct SequencePlayer *seqPlayer, u32 count) {
+    s32 i, j;
+
+    seqPlayer->delay -= count;
+    for (i = 0; i < CHANNELS_MAX; i++) {
+        struct SequenceChannel *seqChannel = seqPlayer->channels[i];
+        if (!IS_SEQUENCE_CHANNEL_VALID(seqChannel) || !seqChannel->enabled) {
+            continue;
+        }
+        if (!seqChannel->stopScript) {
+            seqChannel->delay -= count;
+        }
+        for (j = 0; j < LAYERS_MAX; j++) {
+            struct SequenceChannelLayer *layer = seqChannel->layers[j];
+            if (layer != NULL && layer->enabled) {
+                layer->delay -= count;
+            }
+        }
+    }
+    seqPlayer->tatumPos += count;
+}
+
+static void sequence_player_set_mute_behavior(struct SequencePlayer *seqPlayer, u8 behavior) {
+    s32 i;
+
+    seqPlayer->muteBehavior = behavior;
+    for (i = 0; i < CHANNELS_MAX; i++) {
+        if (IS_SEQUENCE_CHANNEL_VALID(seqPlayer->channels[i])) {
+            seqPlayer->channels[i]->muteBehavior = behavior;
+        }
+    }
+}
+
+static void sequence_player_seek(struct SequencePlayer *seqPlayer, u32 target) {
+    u8 savedMuted = seqPlayer->muted;
+    u8 savedBehavior = seqPlayer->muteBehavior;
+    u16 savedTempoAcc = seqPlayer->tempoAcc;
+    s32 i, j;
+
+    if (target < seqPlayer->tatumPos) {
+        sequence_player_restart(seqPlayer);
+        savedTempoAcc = 0;
+    } else {
+        for (i = 0; i < CHANNELS_MAX; i++) {
+            struct SequenceChannel *seqChannel = seqPlayer->channels[i];
+            if (!IS_SEQUENCE_CHANNEL_VALID(seqChannel)) {
+                continue;
+            }
+            for (j = 0; j < LAYERS_MAX; j++) {
+                struct SequenceChannelLayer *layer = seqChannel->layers[j];
+                if (layer != NULL && layer->enabled) {
+                    if (layer->note != NULL || layer->continuousNotes) {
+                        seq_channel_layer_note_decay(layer);
+                    }
+                    layer->stopSomething = TRUE;
+                }
+            }
+        }
+    }
+
+    seqPlayer->muted = TRUE;
+    while (seqPlayer->enabled && seqPlayer->tatumPos < target) {
+        u32 before = seqPlayer->tatumPos;
+        u32 idle;
+
+        sequence_player_set_mute_behavior(seqPlayer, MUTE_BEHAVIOR_STOP_NOTES);
+
+        idle = sequence_player_idle_tatums(seqPlayer);
+        if (idle > 0) {
+            sequence_player_skip_tatums(seqPlayer, MIN(idle, target - seqPlayer->tatumPos));
+            continue;
+        }
+
+        seqPlayer->tempoAcc = (u16) gTempoInternalToExternal;
+        sequence_player_process_sequence(seqPlayer);
+
+        if (seqPlayer->muteBehavior != MUTE_BEHAVIOR_STOP_NOTES) {
+            savedBehavior = seqPlayer->muteBehavior;
+        }
+        if (seqPlayer->tatumPos == before) {
+            break;
+        }
+    }
+
+    seqPlayer->muted = savedMuted;
+    seqPlayer->tempoAcc = savedTempoAcc;
+    sequence_player_set_mute_behavior(seqPlayer, savedBehavior);
+}
+
+static void sequence_players_apply_seeks(void) {
+    s32 i;
+
+    for (i = 0; i < SEQUENCE_PLAYERS; i++) {
+        struct SequencePlayer *seqPlayer = &gSequencePlayers[i];
+        u32 request, jumpAt;
+
+        if (!seqPlayer->enabled) {
+            continue;
+        }
+
+        request = sSeqSeekRequest[i];
+        if (request != 0) {
+            sSeqSeekRequest[i] = 0;
+            sequence_player_seek(seqPlayer, request - 1);
+        }
+
+        jumpAt = sSeqJumpAt[i];
+        if (jumpAt != 0 && seqPlayer->tatumPos == jumpAt - 1) {
+            u32 to = sSeqJumpTo[i];
+            sSeqJumpAt[i] = 0;
+            sequence_player_seek(seqPlayer, to);
+        }
+
+        if (sSeqChanVolumeMask[i] != 0) {
+            u16 mask = sSeqChanVolumeMask[i];
+            s32 ch;
+            for (ch = 0; ch < CHANNELS_MAX; ch++) {
+                if ((mask & (1 << ch)) && IS_SEQUENCE_CHANNEL_VALID(seqPlayer->channels[ch])) {
+                    seqPlayer->channels[ch]->volumeScale = sSeqChanVolume[i][ch];
+                }
+            }
+        }
+    }
+}
+
 // This runs 240 times per second.
 void process_sequences(UNUSED s32 iterationsRemaining) {
     s32 i;
+
+    sequence_players_apply_seeks();
 
     for (i = 0; i < SEQUENCE_PLAYERS; i++) {
         if (gSequencePlayers[i].enabled == TRUE) {
@@ -2723,6 +2935,10 @@ void init_sequence_player(u32 player) {
     seqPlayer->muted = FALSE;
 #endif
     seqPlayer->delay = 0;
+    seqPlayer->tatumPos = 0;
+    sSeqSeekRequest[player] = 0;
+    sSeqJumpAt[player] = 0;
+    sSeqChanVolumeMask[player] = 0;
 #if defined(VERSION_EU) || defined(VERSION_SH)
     seqPlayer->state = 1;
 #else

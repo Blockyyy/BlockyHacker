@@ -326,6 +326,7 @@ struct SequencePlayer {
 #endif
     /*0x138, 0x140*/ uintptr_t bankDmaCurrDevAddr;
     /*0x13C, 0x144*/ ssize_t bankDmaRemaining;
+    u32 tatumPos;
 }; // size = 0x140, 0x148 on EU, 0x14C on SH
 
 struct AdsrSettings {

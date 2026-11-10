@@ -1,0 +1,13 @@
+#ifndef DYNAMIC_MUSIC_SONGS_H
+#define DYNAMIC_MUSIC_SONGS_H
+
+enum DddLayer {
+    DDD_PIANO,
+    DDD_MELODY,
+    DDD_STRINGS,
+    DDD_DRUMS,
+    DDD_ORGAN,
+    DDD_LAYER_COUNT
+};
+
+#endif // DYNAMIC_MUSIC_SONGS_H
